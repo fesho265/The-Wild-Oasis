@@ -1,7 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { IoCopy, IoCopyOutline } from "react-icons/io5";
 import styled from "styled-components";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const StyledCopy = styled.div`
   display: flex;
@@ -21,7 +21,8 @@ const StyledText = styled.span`
 
 function CopyText({ text }) {
   const [copied, setCopied] = useState(false);
-
+  const { isDarkMode } = useDarkMode();
+  console.log(isDarkMode);
   async function handleCopy() {
     try {
       await navigator.clipboard.writeText(text);
@@ -34,7 +35,10 @@ function CopyText({ text }) {
   return (
     <StyledCopy>
       <StyledText>{text}</StyledText>
-      <StyledButtonIcon onClick={handleCopy}>
+      <StyledButtonIcon
+        onClick={handleCopy}
+        style={isDarkMode ? { color: "black" } : { color: "black" }}
+      >
         {copied ? "Copied!" : "Copy"}
       </StyledButtonIcon>
     </StyledCopy>

@@ -7,6 +7,7 @@ import { subtractDates } from "../utils/helpers";
 import { bookings } from "./data-bookings";
 import { cabins } from "./data-cabins";
 import { guests } from "./data-guests";
+import { useDarkMode } from "../context/DarkModeContext";
 
 // const originalSettings = {
 //   minBookingLength: 3,
@@ -102,7 +103,7 @@ async function createBookings() {
 
 function Uploader() {
   const [isLoading, setIsLoading] = useState(false);
-
+  const { isDarkMode } = useDarkMode();
   async function uploadAll() {
     setIsLoading(true);
     // Bookings need to be deleted FIRST
@@ -138,7 +139,7 @@ function Uploader() {
         gap: "8px",
       }}
     >
-      <h3>SAMPLE DATA</h3>
+      <h3 style={isDarkMode ? { color: "black" } : null}>SAMPLE DATA</h3>
 
       <Button onClick={uploadAll} disabled={isLoading}>
         Upload ALL
@@ -147,7 +148,9 @@ function Uploader() {
       <Button onClick={uploadBookings} disabled={isLoading}>
         Upload bookings ONLY
       </Button>
-      <p>No Activity? hit upload!</p>
+      <p style={isDarkMode ? { color: "black" } : null}>
+        No Activity? hit upload!
+      </p>
     </div>
   );
 }
