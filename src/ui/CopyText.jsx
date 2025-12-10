@@ -35,7 +35,7 @@ function CopyText({ text }) {
     <StyledCopy>
       <StyledText>{text}</StyledText>
       <StyledButtonIcon onClick={handleCopy}>
-        {copied ? <IoCopy /> : <IoCopyOutline />}
+        {copied ? "Copied!" : "Copy"}
       </StyledButtonIcon>
     </StyledCopy>
   );

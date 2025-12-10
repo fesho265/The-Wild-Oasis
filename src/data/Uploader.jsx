@@ -147,6 +147,7 @@ function Uploader() {
       <Button onClick={uploadBookings} disabled={isLoading}>
         Upload bookings ONLY
       </Button>
+      <p>No Activity? hit upload!</p>
     </div>
   );
 }
