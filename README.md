@@ -13,4 +13,8 @@ use these credentials:
 islam@wild.com
 123456789
 
+or
+osama@example.com
+12345678
+
 the signup feature will be implemented soon.
